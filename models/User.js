@@ -3,7 +3,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema(
   {
-    pizzaName: {
+    username: {
       type: String,
       required: true,
       trim: true
@@ -41,7 +41,7 @@ const UserSchema = new Schema(
   }
 );
 
-PizzaSchema.virtual('friendCount').get(function() {
+UserSchema.virtual('friendCount').get(function() {
   return this.friends.reduce(
     (total, friend) => total + friend.length + 1,
     0
